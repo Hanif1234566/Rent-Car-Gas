@@ -1,0 +1,36 @@
+<div class="py-4">
+  <div class="relative w-full h-[250px] md:h-[380px] mb-8 border border-zinc-800 overflow-hidden bg-zinc-950 flex items-center">
+    <img 
+      src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1600&q=80" 
+      alt="Pilihan Armada Tepercaya" 
+      class="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-luminosity"
+    >
+    <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/80 to-transparent"></div>
+
+    <div class="relative z-10 p-6 md:p-12 space-y-3 md:space-y-4 max-w-2xl">
+      <span class="text-[10px] bg-[#ff5f00] text-white px-2.5 py-1 font-black uppercase tracking-widest">
+        Mitra Perjalanan Anda
+      </span>
+      <h1 class="text-3xl md:text-5xl font-black tracking-tighter leading-none uppercase text-white">
+        PERJALANAN NYAMAN,<br><span class="text-[#ff5f00]">ARMADA TEPERCAYA.</span>
+      </h1>
+      <p class="text-zinc-400 max-w-md font-medium text-xs md:text-sm normal-case">
+        Sedia berbagai pilihan unit mobil untuk keperluan keluarga, operasional kantor, maupun liburan. Kondisi bersih, mesin prima, dan pelayanan ramah.
+      </p>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-end mb-6 border-b border-zinc-300 pb-3">
+    <div>
+      <span class="text-[10px] font-black text-[#ff5f00] uppercase tracking-widest">PILIHAN UNIT</span>
+      <h2 class="text-xl md:text-3xl font-black text-zinc-900 tracking-tight uppercase">KATALOG ARMADA KAMI</h2>
+    </div>
+    <button onclick="fetchKatalog()" class="text-[10px] font-bold text-zinc-600 hover:text-[#ff5f00] bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 px-3 py-1.5 uppercase tracking-wider flex items-center gap-1.5 transition-all duration-300 select-none">
+      <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span> 
+      Update Data Unit
+    </button>
+  </div>
+
+  <div id="grid-mobil" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6">
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="max-w-md mx-auto bg-white p-8 border border-gray-200 shadow-xl my-12">
+  <div class="flex justify-around mb-8 border-b border-gray-200 pb-2">
+    <button onclick="toggleAuthForm('login')" id="tab-login" class="text-black font-black border-b-4 border-[#ff5f00] pb-2 uppercase tracking-widest text-sm">SIGN IN</button>
+    <button onclick="toggleAuthForm('register')" id="tab-register" class="text-gray-400 font-bold pb-2 uppercase tracking-widest text-sm hover:text-black">REGISTER</button>
+  </div>
+
+<form id="form-login" onsubmit="handleLogin(event)" class="space-y-4">
+  <div>
+    <label class="block text-[10px] uppercase font-black text-black tracking-wider mb-1">Username</label>
+    <input type="text" id="login-username" class="w-full p-3 border border-gray-300 bg-gray-50 text-black text-sm font-semibold focus:outline-none focus:border-[#ff5f00]" placeholder="user" required>
+  </div>
+  <div>
+    <label class="block text-[10px] uppercase font-black text-black tracking-wider mb-1">Password</label>
+    <input type="password" id="login-password" class="w-full p-3 border border-gray-300 bg-gray-50 text-black text-sm font-semibold focus:outline-none focus:border-[#ff5f00]" placeholder="••••••••" required>
+  </div>
+  <button type="submit" class="w-full bg-black text-white py-3 font-black uppercase text-xs tracking-widest hover:bg-[#ff5f00] transition-colors duration-300">ACCESS ACCOUNT</button>
+</form>
+
+  <form id="form-register" onsubmit="handleRegister(event)" class="space-y-4 hidden">
+    <div>
+      <label class="block text-[10px] uppercase font-black text-black tracking-wider mb-1">Username</label>
+      <input type="text" id="reg-username" class="w-full p-3 border border-gray-300 bg-gray-50 text-black text-sm font-semibold focus:outline-none focus:border-[#ff5f00]" placeholder="Nama Lengkap" required>
+    </div>
+    <div>
+      <label class="block text-[10px] uppercase font-black text-black tracking-wider mb-1">Email Terverifikasi</label>
+      <input type="email" id="reg-email" class="w-full p-3 border border-gray-300 bg-gray-50 text-black text-sm font-semibold focus:outline-none focus:border-[#ff5f00]" placeholder="nama@domain.com" required>
+    </div>
+    <div>
+      <label class="block text-[10px] uppercase font-black text-black tracking-wider mb-1">Password Baru</label>
+      <input type="password" id="reg-password" class="w-full p-3 border border-gray-300 bg-gray-50 text-black text-sm font-semibold focus:outline-none focus:border-[#ff5f00]" placeholder="••••••••" required>
+    </div>
+    <button type="submit" class="w-full bg-[#ff5f00] text-white py-3 font-black uppercase text-xs tracking-widest hover:bg-black transition-colors duration-300">REQUEST OTP CODE</button>
+  </form>
+
+  <div id="section-otp" class="space-y-4 hidden mt-6 pt-6 border-t border-dashed border-gray-300">
+    <div class="bg-amber-50 p-4 border border-amber-200 text-xs text-amber-800 font-medium">
+      🔑 Kode OTP 4 angka telah dikirim ke kotak masuk email pendaftaran lu.
+    </div>
+    <div>
+      <label class="block text-[10px] uppercase font-black text-black tracking-wider text-center mb-1">Input Secure OTP</label>
+      <input type="text" id="otp-code" class="w-full p-3 border-2 border-black bg-gray-50 text-center tracking-[0.8em] text-2xl font-black text-[#ff5f00]" maxlength="4" placeholder="0000" required>
+    </div>
+    <button onclick="handleVerifyOTP()" class="w-full bg-emerald-600 text-white py-3 font-black uppercase text-xs tracking-widest hover:bg-emerald-700 transition-colors">VERIFY AND SUBMIT</button>
+  </div>
+</div>

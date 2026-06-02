@@ -1,0 +1,49 @@
+<div class="w-full bg-[#ff5f00] h-1.5 fixed top-0 left-0 z-50"></div>
+<nav class="bg-white/90 backdrop-blur-md border-b border-gray-200 fixed w-full top-1.5 z-50 shadow-sm transition-all duration-300">
+  <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center relative">
+    
+    <div onclick="switchView('katalog')" class="text-xl md:text-2xl font-black tracking-tighter text-black cursor-pointer select-none z-20">
+      CAR<span class="text-[#ff5f00]"> RENT</span>
+    </div>
+    
+    <button onclick="document.getElementById('nav-menu').classList.toggle('hidden'); document.getElementById('nav-menu').classList.toggle('flex');" class="md:hidden text-black hover:text-[#ff5f00] focus:outline-none z-20 transition-colors">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+      </svg>
+    </button>
+    
+    <div id="nav-menu" class="hidden md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-xl md:shadow-none p-6 md:p-0 gap-6 md:gap-8 items-center border-b md:border-none border-gray-200 z-10 transition-all duration-300">
+      
+      <a href="#" onclick="switchView('katalog'); document.getElementById('nav-menu').classList.add('hidden'); document.getElementById('nav-menu').classList.remove('flex');" class="text-sm font-bold text-black hover:text-[#ff5f00] transition-colors uppercase tracking-wider">Katalog</a>
+      
+      <a href="#" onclick="switchView('kontak'); document.getElementById('nav-menu').classList.add('hidden'); document.getElementById('nav-menu').classList.remove('flex');" class="text-sm font-bold text-black hover:text-[#ff5f00] transition-colors uppercase tracking-wider">Kontak</a>
+      
+      <a href="#" onclick="switchView('admin'); document.getElementById('nav-menu').classList.add('hidden'); document.getElementById('nav-menu').classList.remove('flex');" id="nav-admin-btn" class="hidden w-full md:w-auto justify-center text-xs font-black uppercase tracking-widest text-amber-600 border-2 border-amber-500 px-3 py-2 md:py-1.5 bg-amber-50 rounded flex items-center gap-1.5 transition-all hover:bg-amber-100">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+        ADMIN PANEL
+      </a>
+      
+      <span class="hidden md:block h-4 w-[1px] bg-gray-300"></span>
+      <span class="block md:hidden h-[1px] w-full bg-gray-200"></span>
+
+      <button onclick="switchView('auth'); document.getElementById('nav-menu').classList.add('hidden'); document.getElementById('nav-menu').classList.remove('flex');" id="nav-login-btn" class="w-full md:w-auto bg-black text-white px-5 py-3 md:py-2 text-xs font-black uppercase tracking-widest hover:bg-[#ff5f00] transition-all duration-300">
+        SIGN IN
+      </button>
+
+      <div id="nav-user-wrapper" class="hidden flex-col md:flex-row items-center gap-3 md:gap-4 w-full md:w-auto">
+        <div class="text-center md:text-right">
+          <p id="user-profile" class="text-sm font-black text-black"></p>
+          <p id="user-role" class="text-[10px] text-gray-500 uppercase font-bold tracking-widest"></p>
+        </div>
+        <button onclick="logout()" class="w-full md:w-auto mt-1 md:mt-0 text-xs font-black text-red-600 uppercase tracking-wider hover:underline bg-red-50 md:bg-transparent py-2.5 md:py-0 rounded-sm md:rounded-none">
+          [LOGOUT]
+        </button>
+      </div>
+      
+    </div>
+  </div>
+</nav>
+<div class="h-20 md:h-24"></div>

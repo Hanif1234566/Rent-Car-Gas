@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CAR RENT - Portal Rental Mobil Premium</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=500;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: #fcfbfa;
+    }
+    /* Custom scrollbar untuk estetika premium */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #18181b; }
+    ::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #ff5f00; }
+  </style>
+</head>
+<body class="text-black min-h-screen flex flex-col justify-between selection:bg-[#ff5f00] selection:text-white">
+
+  <div>
+    <div id="view-nav" class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-zinc-200"></div>
+
+    <div id="view-landing-hero" class="view-section bg-zinc-950 text-white overflow-hidden relative">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-20"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-transparent"></div>
+      
+      <div class="container mx-auto px-6 py-24 md:py-32 relative z-10 flex flex-col md:flex-row items-center gap-12">
+        <div class="max-w-2xl space-y-6">
+          <div class="inline-block border border-[#ff5f00] text-[#ff5f00] px-3 py-1 text-[10px] font-black uppercase tracking-widest bg-[#ff5f00]/10">
+            Premium Car Rental
+          </div>
+          <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9]">
+            Drive The <br><span class="text-[#ff5f00]">Excellence.</span>
+          </h1>
+          <p class="text-zinc-400 text-sm md:text-base max-w-md leading-relaxed border-l-2 border-zinc-800 pl-4">
+            Portal penyedia armada kendaraan mewah terkemuka. Kami memberikan jaminan kenyamanan premium, unit eksklusif terawat, serta sistem reservasi instan 24/7.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <button onclick="document.getElementById('view-katalog').scrollIntoView({behavior: 'smooth'})" class="bg-[#ff5f00] border border-[#ff5f00] text-white px-8 py-4 text-[11px] font-black uppercase tracking-widest hover:bg-transparent hover:text-[#ff5f00] transition-colors duration-300">
+              Lihat Katalog Armada
+            </button>
+            <!-- <button onclick="switchView('auth')" class="bg-transparent border border-zinc-700 text-white px-8 py-4 text-[11px] font-black uppercase tracking-widest hover:border-white transition-colors duration-300">
+              Daftar Member
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-landing-features" class="view-section bg-white border-b border-zinc-200">
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-zinc-200">
+          <div class="md:px-6 space-y-3 pt-6 md:pt-0">
+            <h3 class="text-lg font-black uppercase tracking-tight">Unit <span class="text-[#ff5f00]">Terawat</span></h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Seluruh armada melewati inspeksi ketat dan perawatan rutin untuk memastikan performa maksimal di setiap perjalanan.</p>
+          </div>
+          <div class="md:px-6 space-y-3 pt-6 md:pt-0">
+            <h3 class="text-lg font-black uppercase tracking-tight">Layanan <span class="text-[#ff5f00]">24/7</span></h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Dukungan pelanggan dan bantuan darurat siap sedia kapanpun Anda membutuhkan, memberikan ketenangan pikiran.</p>
+          </div>
+          <div class="md:px-6 space-y-3 pt-6 md:pt-0">
+            <h3 class="text-lg font-black uppercase tracking-tight">Sopir <span class="text-[#ff5f00]">Profesional</span></h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Tersedia opsi pengemudi bersertifikat yang memahami standar layanan tamu VIP dan protokol keselamatan.</p>
+          </div>
+          <div class="md:px-6 space-y-3 pt-6 md:pt-0">
+            <h3 class="text-lg font-black uppercase tracking-tight">Harga <span class="text-[#ff5f00]">Transparan</span></h3>
+            <p class="text-xs text-zinc-500 leading-relaxed">Sistem tarif yang jelas tanpa biaya tersembunyi. Apa yang Anda lihat di katalog adalah apa yang Anda bayar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-landing-steps" class="view-section bg-[#fcfbfa]">
+      <div class="container mx-auto px-6 py-20">
+        <div class="text-center max-w-xl mx-auto mb-16 space-y-4">
+          <h2 class="text-3xl font-black uppercase tracking-tighter">Cara <span class="text-[#ff5f00]">Pemesanan</span></h2>
+          <p class="text-sm text-zinc-500">Proses reservasi dirancang semudah mungkin untuk menghemat waktu berharga Anda.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+          <div class="space-y-4 relative">
+            <div class="text-5xl font-black text-zinc-200 uppercase tracking-tighter">01</div>
+            <h4 class="text-sm font-black uppercase tracking-widest">Pilih Armada</h4>
+            <p class="text-xs text-zinc-500 px-4">Eksplorasi katalog kami dan temukan kendaraan yang sesuai dengan kebutuhan perjalanan Anda.</p>
+          </div>
+          <div class="space-y-4 relative">
+            <div class="text-5xl font-black text-zinc-200 uppercase tracking-tighter">02</div>
+            <h4 class="text-sm font-black uppercase tracking-widest">Reservasi Instan</h4>
+            <p class="text-xs text-zinc-500 px-4">Lakukan login dan tekan tombol Book Now. Sistem kami akan segera mencatat permintaan Anda.</p>
+          </div>
+          <div class="space-y-4 relative">
+            <div class="text-5xl font-black text-zinc-200 uppercase tracking-tighter">03</div>
+            <h4 class="text-sm font-black uppercase tracking-widest">Konfirmasi WA</h4>
+            <p class="text-xs text-zinc-500 px-4">Selesaikan administrasi secara personal dengan tim admin kami melalui WhatsApp dan Anda siap berangkat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="container mx-auto px-4 py-12 md:py-20">
+      <div id="view-katalog" class="view-section"></div>
+      <div id="view-detail" class="view-section hidden"></div> 
+      <div id="view-auth" class="view-section hidden"></div>
+      <div id="view-admin" class="view-section hidden"></div>
+      <div id="view-kontak" class="view-section hidden"></div>
+    </main>
+  </div>
+
+  <footer class="bg-zinc-950 text-zinc-400 border-t border-zinc-800 text-xs font-medium">
+    <div class="container mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-6">
+        
+        <div class="md:col-span-4 space-y-4">
+          <div class="text-xl font-black tracking-tighter text-white uppercase select-none">
+            CAR<span class="text-[#ff5f00]"> RENT</span>
+          </div>
+          <p class="text-zinc-500 leading-relaxed text-[11px] max-w-sm">
+            Portal penyedia armada kendaraan mewah terkemuka yang memberikan jaminan kenyamanan premium, unit eksklusif terawat, serta sistem reservasi instan 24/7 untuk perjalanan prestisius Anda.
+          </p>
+          <div class="flex gap-3 pt-2">
+            <a href="#" class="w-7 h-7 bg-zinc-900 border border-zinc-800 hover:border-[#ff5f00] hover:text-white flex items-center justify-center transition-colors">FB</a>
+            <a href="#" class="w-7 h-7 bg-zinc-900 border border-zinc-800 hover:border-[#ff5f00] hover:text-white flex items-center justify-center transition-colors">IG</a>
+            <a href="#" class="w-7 h-7 bg-zinc-900 border border-zinc-800 hover:border-[#ff5f00] hover:text-white flex items-center justify-center transition-colors">YT</a>
+            <a href="#" class="w-7 h-7 bg-zinc-900 border border-zinc-800 hover:border-[#ff5f00] hover:text-white flex items-center justify-center transition-colors">LN</a>
+          </div>
+        </div>
+
+        <div class="md:col-span-2 space-y-3">
+          <h4 class="text-[10px] font-black uppercase text-white tracking-widest border-b border-zinc-800 pb-2">Layanan</h4>
+          <ul class="space-y-2 text-[11px]">
+            <li><a href="#" onclick="switchView('katalog')" class="hover:text-white transition-colors uppercase">Katalog Armada</a></li>
+            <li><a href="#" class="hover:text-white transition-colors uppercase">Sewa Dengan Sopir</a></li>
+            <li><a href="#" class="hover:text-white transition-colors uppercase">Self Drive Luxury</a></li>
+            <li><a href="#" class="hover:text-white transition-colors uppercase">Wedding Car Rent</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-[10px] font-black uppercase text-white tracking-widest border-b border-zinc-800 pb-2">Markas Pusat</h4>
+          <p class="text-zinc-500 leading-relaxed text-[11px] uppercase">
+            CAR RENT GLOBAL INC.<br>
+            2049 NEON DRIVE, SECTOR 7<br>
+            NIGHT CITY, CYBER DISTRICT<br>
+            NEO-EARTH
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-[10px] font-black uppercase text-white tracking-widest border-b border-zinc-800 pb-2">Metode Pembayaran</h4>
+          <div class="grid grid-cols-3 gap-2 pt-1 filter grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <div class="bg-white p-2 flex items-center justify-center text-[8px] font-black text-black text-center rounded-sm">VISA</div>
+            <div class="bg-white p-2 flex items-center justify-center text-[8px] font-black text-black text-center rounded-sm">MASTER</div>
+            <div class="bg-white p-2 flex items-center justify-center text-[8px] font-black text-black text-center rounded-sm">BANK</div>
+          </div>
+          <div class="pt-2">
+            <span class="text-[9px] bg-zinc-900 border border-zinc-800 text-zinc-500 px-2 py-1.5 font-mono uppercase block text-center">
+              SECURE 256-BIT SSL ENCRYPTION
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-900 bg-black py-6">
+      <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div class="text-[10px] font-black tracking-wider uppercase text-zinc-300">
+          CAR<span class="text-[#ff5f00]"> RENT</span> — PORTAL ARMADA PREMIUM EKSKLUSIF
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 text-[9px] text-zinc-600 font-bold uppercase tracking-wider">
+          <a href="#" class="hover:text-zinc-400 transition-colors">Syarat & Ketentuan</a>
+          <span>•</span>
+          <a href="#" class="hover:text-zinc-400 transition-colors">Kebijakan Privasi</a>
+          <span>•</span>
+          <span class="text-zinc-500">© 2026 CAR RENT GLOBAL INC. ALL RIGHTS RESERVED.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycbw9dO6fbic9R8-WisZ4icFipKkrNh9eASm3zLP0x9Ysyp7sDzmVFMBqtgVLM94asp0V/exec";
+    
+    let tempUserData = null;
+    let validOTPCode = "";
+
+    const CAR_IMAGES = {
+      avanza: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&q=80&w=600", 
+      innova: "https://images.unsplash.com/photo-1581541224810-74567e91122a?auto=format&fit=crop&q=80&w=600",
+      brio: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&q=80&w=600",
+      ertiga: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80&w=600",
+      xpander: "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&q=80&w=600",
+      fortuner: "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?auto=format&fit=crop&q=80&w=600",
+      pajero: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?auto=format&fit=crop&q=80&w=600",
+      agya: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&q=80&w=600",
+      sigra: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=600",
+      hiace: "https://images.unsplash.com/photo-1562620644-65db4da7e14f?auto=format&fit=crop&q=80&w=600",
+      default: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=600"
+    };
+
+    const DUMMY_CARS = [
+      { id: "MOCK-1", nama: "Toyota Avanza", tahun: 2023, harga: 350000, status: "Tersedia", imageId: CAR_IMAGES.avanza },
+      { id: "MOCK-2", nama: "Toyota Innova Reborn", tahun: 2022, harga: 500000, status: "Tersedia", imageId: CAR_IMAGES.innova },
+      { id: "MOCK-3", nama: "Honda Brio", tahun: 2023, harga: 280000, status: "Tersedia", imageId: CAR_IMAGES.brio },
+      { id: "MOCK-4", nama: "Suzuki Ertiga", tahun: 2022, harga: 320000, status: "Tersedia", imageId: CAR_IMAGES.ertiga },
+      { id: "MOCK-5", nama: "Mitsubishi Xpander", tahun: 2023, harga: 420000, status: "Tersedia", imageId: CAR_IMAGES.xpander },
+      { id: "MOCK-6", nama: "Toyota Fortuner", tahun: 2022, harga: 650000, status: "Tersedia", imageId: CAR_IMAGES.fortuner },
+      { id: "MOCK-7", nama: "Mitsubishi Pajero Sport", tahun: 2023, harga: 750000, status: "Tersedia", imageId: CAR_IMAGES.pajero },
+      { id: "MOCK-8", nama: "Toyota Agya", tahun: 2023, harga: 220000, status: "Tersedia", imageId: CAR_IMAGES.agya },
+      { id: "MOCK-9", nama: "Daihatsu Sigra", tahun: 2022, harga: 200000, status: "Tersedia", imageId: CAR_IMAGES.sigra },
+      { id: "MOCK-10", nama: "Toyota HiAce", tahun: 2022, harga: 900000, status: "Tersedia", imageId: CAR_IMAGES.hiace }
+    ];
+
+    let _formMobilListenerAttached = false;
+
+    async function loadComponents() {
+      try {
+        document.getElementById('view-nav').innerHTML = await (await fetch('components/nav.html')).text();
+        document.getElementById('view-katalog').innerHTML = await (await fetch('components/katalog.html')).text();
+        document.getElementById('view-auth').innerHTML = await (await fetch('components/auth.html')).text();
+        document.getElementById('view-admin').innerHTML = await (await fetch('components/admin.html')).text();
+        
+        try {
+          document.getElementById('view-kontak').innerHTML = await (await fetch('components/kontak.html')).text();
+        } catch(e) {
+          console.warn("File components/kontak.html tidak ditemukan.");
+        }
+        
+        fetchKatalog();
+        checkSession();
+
+        const formMobil = document.getElementById('form-mobil');
+        if(formMobil && !_formMobilListenerAttached) {
+          formMobil.removeAttribute('onsubmit');
+          formMobil.addEventListener('submit', handleFormMobil);
+          _formMobilListenerAttached = true;
+        }
+      } catch (err) {
+        console.error("Gagal load komponen HTML:", err);
+      }
+    }
+
+    // MODIFIKASI: Menambahkan logika untuk menampilkan/menyembunyikan section landing page
+    function switchView(target) {
+      // Sembunyikan semua section view
+      document.querySelectorAll('.view-section').forEach(sec => {
+        if (sec) sec.classList.add('hidden');
+      });
+      
+      // Jika kembali ke katalog, tampilkan juga elemen landing page
+      if (target === 'katalog') {
+        document.getElementById('view-landing-hero')?.classList.remove('hidden');
+        document.getElementById('view-landing-features')?.classList.remove('hidden');
+        document.getElementById('view-landing-steps')?.classList.remove('hidden');
+      }
+
+      // Tampilkan target utama
+      const targetEl = document.getElementById(`view-${target}`);
+      if (targetEl) targetEl.classList.remove('hidden');
+      
+      window.scrollTo(0,0);
+    }
+
+    function toggleAuthForm(type) {
+      const formLogin = document.getElementById('form-login');
+      const formRegister = document.getElementById('form-register');
+      const tabLogin = document.getElementById('tab-login');
+      const tabRegister = document.getElementById('tab-register');
+
+      if(type === 'login') {
+        if(formLogin) formLogin.classList.remove('hidden');
+        if(formRegister) formRegister.classList.add('hidden');
+        if(tabLogin) tabLogin.className = "text-black font-black border-b-4 border-[#ff5f00] pb-2 uppercase tracking-widest text-sm";
+        if(tabRegister) tabRegister.className = "text-gray-400 font-bold pb-2 uppercase tracking-widest text-sm hover:text-black";
+      } else {
+        if(formLogin) formLogin.classList.add('hidden');
+        if(formRegister) formRegister.classList.remove('hidden');
+        if(tabRegister) tabRegister.className = "text-black font-black border-b-4 border-[#ff5f00] pb-2 uppercase tracking-widest text-sm";
+        if(tabLogin) tabLogin.className = "text-gray-400 font-bold pb-2 uppercase tracking-widest text-sm hover:text-black";
+      }
+    }
+
+    async function apiRequest(payload) {
+      let response = await fetch(API_URL, {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: { "Content-Type": "text/plain;charset=utf-8" }
+      });
+      return await response.json();
+    }
+
+    async function fetchKatalog() {
+      let grid = document.getElementById('grid-mobil');
+      let tableBody = document.getElementById('table-body-mobil');
+      if(!grid) return;
+      
+      grid.innerHTML = `<div class="col-span-full text-center py-10 text-zinc-400 text-sm animate-pulse font-bold tracking-widest uppercase">Memuat sistem armada cloud...</div>`;
+      if(tableBody) tableBody.innerHTML = "";
+
+      try {
+        let res = await apiRequest({ action: "readMobil" });
+        grid.innerHTML = "";
+
+        if(res.success && res.data && res.data.length > 0) {
+          res.data.forEach(mobil => {
+            let imgLink = getImageLink(mobil.imageId, mobil.nama);
+            grid.innerHTML += createCardHTML(mobil, imgLink);
+
+            if(tableBody) {
+              tableBody.innerHTML += `
+                <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                  <td class="p-4 font-mono text-gray-500 text-[11px]">${mobil.id}</td>
+                  <td class="p-4 text-black font-black uppercase">${mobil.nama}</td>
+                  <td class="p-4 text-gray-600">${mobil.tahun}</td>
+                  <td class="p-4 text-black font-bold">Rp ${Number(mobil.harga).toLocaleString('id-ID')}</td>
+                  <td class="p-4"><span class="px-2 py-1 text-[10px] font-black uppercase ${mobil.status === 'Tersedia' ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}">${mobil.status}</span></td>
+                  <td class="p-4 text-center space-x-4">
+                    <button onclick="prepareEditMobil('${mobil.id}', '${escapeAttr(mobil.nama)}', ${mobil.tahun}, ${mobil.harga}, '${mobil.imageId || ''}')" class="text-blue-600 font-bold text-xs uppercase tracking-wider hover:underline">EDIT</button>
+                    <button onclick="deleteMobil('${mobil.id}')" class="text-red-600 font-bold text-xs uppercase tracking-wider hover:underline">HAPUS</button>
+                  </td>
+                </tr>`;
+            }
+          });
+        }
+
+        DUMMY_CARS.forEach(mobil => {
+          grid.innerHTML += createCardHTML(mobil, mobil.imageId);
+        });
+
+      } catch (err) {
+        console.log("Database cloud error:", err);
+        grid.innerHTML = "";
+        DUMMY_CARS.forEach(mobil => {
+          grid.innerHTML += createCardHTML(mobil, mobil.imageId);
+        });
+      }
+    }
+
+    // FUNGSI INI DIBIARKAN UTUH SESUAI INSTRUKSI
+    function getImageLink(imageId, namaFallback) {
+      if (!imageId || imageId.trim() === "") {
+        return getFallbackImage(namaFallback || "");
+      }
+      if (imageId.startsWith('http://') || imageId.startsWith('https://')) {
+        return imageId;
+      }
+      
+      // MENGGUNAKAN STANDAR URL GOOGLE DRIVE YANG BENAR BERIKUT TANDA $
+      return `https://lh3.googleusercontent.com/d/$${imageId}`;
+    }
+
+    function escapeAttr(str) {
+      return String(str).replace(/'/g, "\\'").replace(/"/g, '"');
+    }
+
+    function getFallbackImage(name) {
+      let lower = name.toLowerCase();
+      if(lower.includes('avanza')) return CAR_IMAGES.avanza;
+      if(lower.includes('innova')) return CAR_IMAGES.innova;
+      if(lower.includes('brio')) return CAR_IMAGES.brio;
+      if(lower.includes('ertiga')) return CAR_IMAGES.ertiga;
+      if(lower.includes('xpander')) return CAR_IMAGES.xpander;
+      if(lower.includes('fortuner')) return CAR_IMAGES.fortuner;
+      if(lower.includes('pajero')) return CAR_IMAGES.pajero;
+      if(lower.includes('agya')) return CAR_IMAGES.agya;
+      if(lower.includes('sigra')) return CAR_IMAGES.sigra;
+      if(lower.includes('hiace')) return CAR_IMAGES.hiace;
+      return CAR_IMAGES.default;
+    }
+
+    // MODIFIKASI: Desain card ditingkatkan, tinggi gambar disamakan, tipografi diperbaiki
+    function createCardHTML(mobil, imgLink) {
+      return `
+        <div class="bg-white border border-zinc-200 transition-all duration-300 hover:shadow-2xl hover:border-zinc-800 flex flex-col justify-between w-full text-black group relative">
+          <div class="h-48 sm:h-56 w-full overflow-hidden bg-zinc-100 relative border-b border-zinc-100">
+            <img src="${imgLink}" alt="${mobil.nama}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" onerror="this.onerror=null; this.src='${CAR_IMAGES.default}';">
+            
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            <span class="absolute top-3 left-3 text-[10px] md:text-xs px-2.5 py-1 uppercase font-black tracking-widest ${mobil.status === 'Tersedia' ? 'bg-white text-black shadow-lg' : 'bg-zinc-800 text-white'}">
+              ${mobil.status || 'Tersedia'}
+            </span>
+            <span class="absolute top-3 right-3 text-[10px] md:text-xs font-bold text-zinc-600 bg-white/90 backdrop-blur-sm px-2 py-1 uppercase tracking-widest">
+              ${mobil.tahun}
+            </span>
+          </div>
+          
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="mb-4">
+              <h3 class="text-base md:text-lg font-black uppercase tracking-tight leading-tight line-clamp-1 group-hover:text-[#ff5f00] transition-colors">${mobil.nama}</h3>
+              <div class="flex items-baseline gap-1 mt-2">
+                <span class="text-xs text-zinc-400 font-bold uppercase tracking-wider">IDR</span>
+                <span class="text-xl md:text-2xl font-black text-zinc-900">${Number(mobil.harga).toLocaleString('id-ID')}</span>
+                <span class="text-xs font-normal text-zinc-400">/hari</span>
+              </div>
+            </div>
+
+            <div class="mt-auto grid grid-cols-2 gap-3">
+              <button onclick="bukaDetailMobil('${mobil.id}', '${escapeAttr(mobil.nama)}', '${mobil.tahun}', '${mobil.harga}', '${mobil.status}', '${mobil.imageId}')" 
+                      class="w-full bg-transparent text-black border border-zinc-300 py-3 text-center font-black text-[10px] md:text-xs uppercase tracking-widest hover:bg-zinc-100 hover:border-black transition-colors duration-200">
+                Detail
+              </button>
+              
+              <button onclick="bookingMobil('${mobil.id}', '${escapeAttr(mobil.nama)}')" 
+                      ${mobil.status === 'Habis' ? 'disabled' : ''} 
+                      class="w-full bg-[#ff5f00] text-white py-3 text-center font-black text-[10px] md:text-xs uppercase tracking-widest hover:bg-black transition-colors duration-200 disabled:bg-zinc-200 disabled:text-zinc-400 disabled:cursor-not-allowed">
+                Book
+              </button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      let username = document.getElementById('login-username').value; 
+      let password = document.getElementById('login-password').value;
+      
+      let res = await apiRequest({ action: "login", username, password });
+      
+      if(res.success) {
+        localStorage.setItem('user_session', JSON.stringify(res.user));
+        alert(`Selamat Datang, ${res.user.username}`);
+        checkSession();
+        switchView('katalog');
+      } else { alert("Gagal Masuk: " + res.message); }
+    }
+
+    async function handleRegister(e) {
+      e.preventDefault();
+      tempUserData = {
+        username: document.getElementById('reg-username').value,
+        email: document.getElementById('reg-email').value,
+        password: document.getElementById('reg-password').value
+      };
+      alert("Sedang mengirimkan kode OTP keamanan ke email anda...");
+      let res = await apiRequest({ action: "register", email: tempUserData.email });
+      if(res.success) {
+        validOTPCode = res.otp;
+        const sectionOtp = document.getElementById('section-otp');
+        if(sectionOtp) sectionOtp.classList.remove('hidden');
+        alert("Kode OTP sukses dikirim!");
+      } else { alert("Gagal Registrasi: " + res.message); }
+    }
+
+    async function handleVerifyOTP() {
+      let inputOTP = document.getElementById('otp-code').value;
+      if(inputOTP !== validOTPCode) return alert("Kode OTP salah!");
+      let res = await apiRequest({ action: "verify_otp", ...tempUserData });
+      if(res.success) {
+        alert("Akun aktif! Silakan sign-in.");
+        const sectionOtp = document.getElementById('section-otp');
+        if(sectionOtp) sectionOtp.classList.add('hidden');
+        document.getElementById('form-register').reset();
+        toggleAuthForm('login');
+      }
+    }
+
+    let _isSubmitting = false;
+
+    async function handleFormMobil(event) {
+      event.preventDefault();
+      event.stopPropagation(); 
+
+      if (_isSubmitting) return;
+      _isSubmitting = true;
+
+      let idMobil    = document.getElementById('mobil-id').value;
+      let namaMobil  = document.getElementById('mobil-nama').value;
+      let tahunMobil = document.getElementById('mobil-tahun').value;
+      let hargaMobil = document.getElementById('mobil-harga').value;
+      let fileInput  = document.getElementById('mobil-file-id');
+      let linkInput  = document.getElementById('mobil-image-id');
+
+      let currentAction = idMobil ? "updateMobil" : "createMobil";
+      let payload = {
+        action: currentAction, nama: namaMobil, tahun: tahunMobil, harga: hargaMobil,
+        fileBase64: "", fileName: "", fileMimeType: "", imageId: ""
+      };
+
+      if (idMobil) payload.id = idMobil;
+
+      if (fileInput && fileInput.files.length > 0) {
+        let file = fileInput.files[0];
+        if (file.size > 2 * 1024 * 1024) {
+          alert("Ukuran gambar terlalu besar! Maksimal 2MB.");
+          _isSubmitting = false;
+          return;
+        }
+        payload.fileBase64 = await convertFileToBase64(file);
+        payload.fileName = file.name;
+        payload.fileMimeType = file.type;
+      } else if (linkInput && linkInput.value.trim() !== "") {
+        payload.imageId = linkInput.value.trim();
+      } else if (!idMobil) {
+        alert("Tolong pilih file dari laptop ATAU masukkan link gambar internet!");
+        _isSubmitting = false;
+        return;
+      }
+
+      try {
+        let btnSubmit = document.getElementById('btn-submit-mobil');
+        if(btnSubmit) {
+          btnSubmit.innerText = "SAVING PROCESS...";
+          btnSubmit.disabled = true;
+        }
+        let response = await apiRequest(payload);
+        alert(response.message);
+        if (response.success) {
+          document.getElementById('form-mobil').reset();
+          document.getElementById('mobil-id').value = "";
+          if(btnSubmit) btnSubmit.innerText = "SAVE UNIT";
+          fetchKatalog();
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Terjadi kesalahan jaringan!");
+      } finally {
+        let btnSubmit = document.getElementById('btn-submit-mobil');
+        if(btnSubmit) {
+          btnSubmit.innerText = document.getElementById('mobil-id').value === "" ? "SAVE UNIT" : "UPDATE DATA UNIT";
+          btnSubmit.disabled = false;
+        }
+        _isSubmitting = false; 
+      }
+    }
+
+    function convertFileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    function prepareEditMobil(id, nama, tahun, harga, imageId) {
+      document.getElementById('mobil-id').value = id;
+      document.getElementById('mobil-nama').value = nama;
+      document.getElementById('mobil-tahun').value = tahun;
+      document.getElementById('mobil-harga').value = harga;
+      document.getElementById('mobil-image-id').value = imageId;
+      const btnSubmit = document.getElementById('btn-submit-mobil');
+      if(btnSubmit) btnSubmit.innerText = "UPDATE DATA UNIT";
+      window.scrollTo(0,0);
+    }
+
+    async function deleteMobil(id) {
+      if(!confirm("Keluarkan unit ini dari database cloud?")) return;
+      let res = await apiRequest({ action: "deleteMobil", id });
+      if(res.success) { 
+        alert(res.message); 
+        fetchKatalog(); 
+      } else {
+        alert(res.message);
+      }
+    }
+
+    async function bookingMobil(idMobil, namaMobil) {
+      let user = JSON.parse(localStorage.getItem('user_session'));
+      if(!user) { 
+        alert("Wajib login terlebih dahulu untuk melakukan reservasi!"); 
+        return switchView('auth'); 
+      }
+
+      try {
+        let res = await apiRequest({
+          action: "createBooking", 
+          username: user.username, 
+          id_mobil: idMobil,
+          tgl_mulai: "Ditentukan via WA", 
+          tgl_selesai: "Ditentukan via WA"
+        });
+
+        if(res.success) {
+          const noWA = "6283862234830"; 
+          const pesan = `Halo Admin CAR RENT, saya *${user.username}*. Saya tertarik untuk menyewa armada *${namaMobil}* yang baru saja saya book di website.\n\nApakah unit ini tersedia dan bagaimana persyaratannya?`;
+          
+          const waLink = `https://api.whatsapp.com/send?phone=${noWA}&text=${encodeURIComponent(pesan)}`;
+          window.open(waLink, '_blank');
+        } else {
+          alert("Gagal memproses pengajuan booking ke database: " + res.message);
+        }
+      } catch (error) {
+        console.error("Error booking hybrid system:", error);
+        alert("Gagal menyambungkan ke server cloud!");
+      }
+    }
+
+    async function bukaDetailMobil(id, nama, tahun, harga, status, imageId) {
+      const viewDetailContainer = document.getElementById('view-detail');
+      if (!viewDetailContainer) return;
+
+      try {
+        const response = await fetch('components/detail.html');
+        const htmlText = await response.text();
+        viewDetailContainer.innerHTML = htmlText;
+        switchView('detail');
+
+        let imgLink = getImageLink(imageId, nama);
+
+        const elNama = document.getElementById('detail-nama');
+        const elTahun = document.getElementById('detail-tahun');
+        const elHarga = document.getElementById('detail-harga');
+        const elImg = document.getElementById('detail-img');
+        const elStatus = document.getElementById('detail-status');
+        const elBtn = document.getElementById('detail-btn-booking');
+
+        if (elNama) elNama.innerText = nama;
+        if (elTahun) elTahun.innerText = tahun;
+        if (elHarga) elHarga.innerText = "IDR " + Number(harga).toLocaleString('id-ID');
+        
+        if (elImg) {
+          elImg.src = imgLink;
+          elImg.onerror = function() {
+            this.onerror = null;
+            this.src = CAR_IMAGES.default;
+          };
+        }
+        
+        if (elStatus) {
+          elStatus.innerText = status;
+          if (status === 'Tersedia' || status === '') {
+            elStatus.className = "absolute top-4 left-4 text-[10px] px-3 py-1.5 uppercase font-black tracking-widest text-black bg-white shadow-lg";
+            if (elBtn) {
+              elBtn.removeAttribute('disabled');
+              elBtn.innerText = "BOOK NOW (RESERVASI INSTAN)";
+              elBtn.className = "w-full bg-[#ff5f00] text-white py-4 text-center font-black text-xs uppercase tracking-widest hover:bg-black transition-colors duration-200 cursor-pointer";
+            }
+          } else {
+            elStatus.className = "absolute top-4 left-4 text-[10px] px-3 py-1.5 uppercase font-black tracking-widest text-white bg-zinc-800 shadow-lg";
+            if (elBtn) {
+              elBtn.setAttribute('disabled', 'true');
+              elBtn.innerText = "ARMADA TIDAK TERSEDIA";
+              elBtn.className = "w-full bg-zinc-200 text-zinc-400 py-4 text-center font-black text-xs uppercase tracking-widest cursor-not-allowed";
+            }
+          }
+        }
+
+        if (elBtn) elBtn.setAttribute('onclick', `bookingMobil('${id}', '${escapeAttr(nama)}')`);
+
+      } catch (error) {
+        console.error("Gagal memuat komponen detail produk:", error);
+        alert("Gagal memuat halaman detail armada.");
+      }
+    }
+
+    function switchAdminView(viewName) {
+      document.querySelectorAll('.admin-section').forEach(el => el.classList.add('hidden'));
+      
+      const tabMobil = document.getElementById('btn-tab-mobil');
+      const tabBooking = document.getElementById('btn-tab-booking');
+      
+      if(tabMobil && tabBooking) {
+        tabMobil.className = "px-6 py-4 border-b-2 border-transparent font-bold text-xs uppercase tracking-widest text-gray-400 hover:text-black flex items-center gap-2 transition-all duration-200";
+        tabBooking.className = "px-6 py-4 border-b-2 border-transparent font-bold text-xs uppercase tracking-widest text-gray-400 hover:text-black flex items-center gap-2 transition-all duration-200";
+      }
+
+      const targetSection = document.getElementById(`section-${viewName}`);
+      const targetTabButton = document.getElementById(`btn-tab-${viewName}`);
+      
+      if (targetSection) targetSection.classList.remove('hidden');
+      if (targetTabButton) {
+        targetTabButton.className = "px-6 py-4 border-b-2 border-black font-black text-xs uppercase tracking-widest text-black flex items-center gap-2 transition-all duration-200";
+      }
+      
+      if (viewName === 'booking') loadBookingData();
+    }
+
+    async function loadBookingData() {
+      const tbody = document.getElementById('table-booking-body');
+      if (!tbody) return;
+      
+      tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-gray-600 font-bold uppercase tracking-widest text-xs animate-pulse">Memproses sinkronisasi database transaksi...</td></tr>`;
+      
+      try {
+        let res = await apiRequest({ action: "readBooking" });
+        if (res.success) {
+          if (!res.data || res.data.length === 0) {
+            tbody.innerHTML = `<tr><td colspan="6" class="p-6 text-center text-gray-400 font-bold text-xs uppercase tracking-widest">Belum ada entri reservasi.</td></tr>`;
+            return;
+          }
+          
+          tbody.innerHTML = "";
+          res.data.forEach(book => {
+            let badgeStyle = "bg-amber-100 text-amber-900";
+            if (book.status === "Selesai" || book.status === "Approved" || book.status === "Tersedia") {
+              badgeStyle = "bg-emerald-100 text-emerald-900";
+            } else if (book.status === "Dibatalkan" || book.status === "Rejected" || book.status === "Pending") {
+              badgeStyle = book.status === "Pending" ? "bg-blue-100 text-blue-900" : "bg-rose-100 text-rose-900";
+            }
+
+            tbody.innerHTML += `
+              <tr class="hover:bg-gray-50 transition-colors border-b border-gray-100">
+                <td class="p-4 font-mono font-bold text-black">${book.id}</td>
+                <td class="p-4 text-gray-900 font-bold">${book.username}</td>
+                <td class="p-4 text-gray-500 font-mono text-[11px]">${book.id_mobil}</td>
+                <td class="p-4 text-gray-600 text-sm">${book.tgl_mulai}</td>
+                <td class="p-4 text-gray-600 text-sm">${book.tgl_selesai}</td>
+                <td class="p-4 text-center">
+                  <span class="px-3 py-1.5 text-[10px] uppercase font-black tracking-widest ${badgeStyle}">
+                    ${book.status}
+                  </span>
+                </td>
+              </tr>
+            `;
+          });
+        } else {
+          tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-rose-600 font-bold">Gagal sinkronisasi data: ${res.message}</td></tr>`;
+        }
+      } catch (error) {
+        tbody.innerHTML = `<tr><td colspan="6" class="p-4 text-center text-rose-600 font-bold">Sistem Error Intern: ${error.toString()}</td></tr>`;
+      }
+    }
+
+    function checkSession() {
+      let user = JSON.parse(localStorage.getItem('user_session'));
+      let wrapper = document.getElementById('nav-user-wrapper');
+      let profileEl = document.getElementById('user-profile');
+      let roleEl = document.getElementById('user-role');
+      let loginBtn = document.getElementById('nav-login-btn');
+      let adminBtn = document.getElementById('nav-admin-btn');
+      let adminView = document.getElementById('view-admin');
+
+      if(user) {
+        if(profileEl) profileEl.innerText = user.username;
+        if(roleEl) roleEl.innerText = user.role;
+        if(wrapper) wrapper.classList.remove('hidden');
+        if(loginBtn) loginBtn.classList.add('hidden');
+        if(user.role === 'admin' && adminBtn) adminBtn.classList.remove('hidden');
+      } else {
+        if(wrapper) wrapper.classList.add('hidden');
+        if(loginBtn) loginBtn.classList.remove('hidden');
+        if(adminBtn) adminBtn.classList.add('hidden');
+        if(adminView) adminView.classList.add('hidden');
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('user_session');
+      alert("Sesi ditutup!");
+      window.location.reload();
+    }
+
+    window.onload = loadComponents;
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<div class="py-4">
+  <button onclick="switchView('katalog')" class="mb-6 text-[10px] font-bold text-zinc-600 hover:text-[#ff5f00] bg-zinc-100 hover:bg-zinc-200 border border-zinc-300 px-4 py-2 uppercase tracking-wider transition-all duration-300">
+    ← Kembali ke Katalog
+  </button>
+
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-8 bg-white border border-zinc-200 p-4 md:p-8">
+    <div class="md:col-span-7">
+      <div class="w-full bg-zinc-100 border border-zinc-200 relative overflow-hidden" style="aspect-ratio: 16/10;">
+        <img id="detail-img" src="" alt="Gambar Mobil" class="w-full h-full object-cover">
+        <span id="detail-status" class="absolute top-3 left-3 text-[10px] px-2 py-1 uppercase font-black tracking-wider text-white"></span>
+      </div>
+    </div>
+
+    <div class="md:col-span-5 flex flex-col justify-between space-y-6">
+      <div class="space-y-4">
+        <div>
+          <span class="text-[10px] font-black text-[#ff5f00] uppercase tracking-widest block mb-1">Spesifikasi Unit</span>
+          <h1 id="detail-nama" class="text-2xl md:text-4xl font-black uppercase tracking-tight text-zinc-900 leading-tight"></h1>
+        </div>
+
+        <div class="border-y border-zinc-100 py-3 grid grid-cols-2 gap-4">
+          <div>
+            <span class="text-[10px] text-zinc-400 font-bold uppercase block">Tahun Rilis</span>
+            <span id="detail-tahun" class="text-sm font-black text-zinc-800 font-mono"></span>
+          </div>
+          <div>
+            <span class="text-[10px] text-zinc-400 font-bold uppercase block">Kondisi Mesin</span>
+            <span class="text-sm font-black text-emerald-600 uppercase">Prima / Terawat</span>
+          </div>
+        </div>
+
+        <div class="bg-zinc-50 p-4 border border-zinc-100">
+          <span class="text-[10px] text-zinc-400 uppercase tracking-wider font-bold block mb-1">Tarif Sewa Khusus Hari Ini</span>
+          <div class="text-2xl md:text-3xl font-black text-zinc-900">
+            <span id="detail-harga"></span><span class="text-xs font-normal text-zinc-400"> / Hari</span>
+          </div>
+        </div>
+
+        <div class="text-xs text-zinc-500 leading-relaxed space-y-2">
+          <p class="font-bold text-zinc-700">Fasilitas Termasuk:</p>
+          <ul class="list-disc pl-4 space-y-1">
+            <li>Asuransi perjalanan dasar</li>
+            <li>Unit bersih & full bensin (ketentuan berlaku)</li>
+            <li>Layanan darurat jalan raya 24 jam</li>
+          </ul>
+        </div>
+      </div>
+
+      <button id="detail-btn-booking" onclick="" class="w-full bg-[#ff5f00] text-white py-3.5 text-center font-black text-xs uppercase tracking-widest hover:bg-black transition-colors duration-200">
+        BOOK NOW (RESERVASI INSTAN)
+      </button>
+    </div>
+  </div>
+</div>

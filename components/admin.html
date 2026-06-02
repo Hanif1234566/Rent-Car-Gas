@@ -1,0 +1,130 @@
+<div class="flex border-b border-gray-200 mb-4 gap-2">
+  <button onclick="switchAdminView('mobil')" id="btn-tab-mobil" class="px-5 py-3 border-b-2 border-black font-black text-xs uppercase tracking-widest text-black flex items-center gap-2 transition-all duration-200">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 17v-2a4 4 0 00-4-4H3m14 6v-2a4 4 0 00-4-4h-3a4 4 0 00-4 4v2m11-11h.01M7 21h10a2 2 0 002-2V9a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+    </svg>
+    Kelola Armada
+  </button>
+  <button onclick="switchAdminView('booking')" id="btn-tab-booking" class="px-5 py-3 border-b-2 border-transparent font-bold text-xs uppercase tracking-widest text-gray-400 hover:text-black flex items-center gap-2 transition-all duration-200">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+    </svg>
+    Kelola Pesanan
+  </button>
+</div>
+
+<div id="section-mobil" class="admin-section bg-white p-6 md:p-8 border border-gray-200 shadow-lg my-6">
+  <div class="border-b-2 border-black pb-4 mb-6">
+    <h2 class="text-2xl font-black text-black tracking-tight uppercase flex items-center gap-2">
+      <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+      FLEET CONTROL MANAGEMENT
+    </h2>
+    <p class="text-xs text-gray-500 font-medium mt-1">Kelola database unit real-time ke dalam sistem Google Spreadsheet Anda.</p>
+  </div>
+  
+  <form id="form-mobil" onsubmit="handleFormMobil(event)" class="bg-[#f3f0ec] p-5 border border-gray-300 mb-8 space-y-4">
+    <input type="hidden" id="mobil-id">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div>
+        <label class="block text-[10px] uppercase font-black text-black mb-1">Nama Tipe Mobil</label>
+        <input type="text" id="mobil-nama" class="w-full p-2.5 border border-gray-300 bg-white text-black text-xs font-bold focus:outline-none focus:border-[#ff5f00]" placeholder="Ex: Rolls Royce Ghost" required>
+      </div>
+      
+      <div>
+        <label class="block text-[10px] uppercase font-black text-black mb-1">Tahun Rilis</label>
+        <input type="number" id="mobil-tahun" class="w-full p-2.5 border border-gray-300 bg-white text-black text-xs font-bold focus:outline-none focus:border-[#ff5f00]" placeholder="2026" required>
+      </div>
+      
+      <div>
+        <label class="block text-[10px] uppercase font-black text-black mb-1">Tarif / Hari (Rp)</label>
+        <input type="number" id="mobil-harga" class="w-full p-2.5 border border-gray-300 bg-white text-black text-xs font-bold focus:outline-none focus:border-[#ff5f00]" placeholder="1500000" required>
+      </div>
+    </div>
+
+    <div class="border border-dashed border-gray-300 p-4 bg-gray-50/50 my-2">
+      <label class="block text-[10px] uppercase font-black text-black mb-2 tracking-wider">Metode Input Gambar Unit</label>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white p-3 border border-gray-200">
+          <span class="block text-[9px] font-bold uppercase text-gray-500 mb-1">Opsi 1: Upload dari Laptop</span>
+          <input type="file" id="mobil-file-id" accept="image/*" class="w-full text-xs text-gray-700 font-semibold file:mr-4 file:py-1.5 file:px-3 file:border-0 file:text-[10px] file:font-black file:uppercase file:bg-black file:text-white hover:file:bg-[#ff5f00] file:cursor-pointer transition-colors">
+        </div>
+
+        <div class="bg-white p-3 border border-gray-200">
+          <span class="block text-[9px] font-bold uppercase text-gray-500 mb-1">Opsi 2: Link URL Gambar Internet</span>
+          <input type="url" id="mobil-image-id" class="w-full p-2 border border-gray-300 bg-white text-black text-xs font-bold focus:outline-none focus:border-[#ff5f00]" placeholder="https://images.unsplash.com/... atau dari google">
+        </div>
+      </div>
+      <p class="text-[9px] text-gray-400 mt-2 font-medium italic">*Sistem cerdas akan memprioritaskan File dari Laptop jika diunggah. Jika dikosongkan, link URL di sebelah kanan yang akan dibaca oleh sistem.</p>
+    </div>
+    
+    <div class="flex justify-end">
+      <button type="submit" id="btn-submit-mobil" class="w-full md:w-auto bg-black text-white px-8 py-3 text-xs font-black uppercase tracking-widest hover:bg-[#ff5f00] transition-colors duration-300">
+        SAVE UNIT
+      </button>
+    </div>
+  </form>
+
+  <div class="overflow-x-auto border border-gray-200">
+    <table class="w-full text-left border-collapse bg-white">
+      <thead>
+        <tr class="bg-black text-[10px] uppercase tracking-widest text-white">
+          <th class="p-3">ID</th>
+          <th class="p-3">Armada</th>
+          <th class="p-3">Tahun</th>
+          <th class="p-3">Tarif / Hari</th>
+          <th class="p-3">Ketersediaan</th>
+          <th class="p-3 text-center">Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="table-body-mobil" class="text-xs divide-y divide-gray-200 text-black font-semibold">
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="section-booking" class="admin-section hidden bg-white p-6 md:p-8 border border-gray-200 shadow-lg my-6">
+  <div class="border-b-2 border-black pb-4 mb-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div>
+      <h2 class="text-2xl font-black text-black tracking-tight uppercase flex items-center gap-2">
+        <svg class="w-7 h-7 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+        </svg>
+        BOOKING ORDER LIST
+      </h2>
+      <p class="text-xs text-gray-500 font-medium mt-1">Pantau, validasi, dan kelola seluruh riwayat transaksi pesanan rental masuk secara berkala.</p>
+    </div>
+    <div>
+      <button onclick="loadBookingData()" class="w-full md:w-auto bg-black text-white px-5 py-2.5 text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-[#ff5f00] transition-colors duration-300">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.213 15M16 5h5v5"></path>
+        </svg>
+        REFRESH LIST
+      </button>
+    </div>
+  </div>
+
+  <div class="overflow-x-auto border border-gray-200">
+    <table class="w-full text-left border-collapse bg-white">
+      <thead>
+        <tr class="bg-black text-[10px] uppercase tracking-widest text-white">
+          <th class="p-3">ID Booking</th>
+          <th class="p-3">Username Pelanggan</th>
+          <th class="p-3">ID Unit Mobil</th>
+          <th class="p-3">Tanggal Mulai</th>
+          <th class="p-3">Tanggal Selesai</th>
+          <th class="p-3 text-center">Status</th>
+        </tr>
+      </thead>
+      <tbody id="table-booking-body" class="text-xs divide-y divide-gray-200 text-black font-semibold">
+        <tr>
+          <td colspan="6" class="p-4 text-center text-gray-400 italic">Memuat data booking...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
